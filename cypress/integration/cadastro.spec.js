@@ -7,7 +7,7 @@ describe('Register', () => {
 
     const deliveryman = {
       name: 'João Brito',
-      cpf: '99999999999',
+      cpf: '99833441300',
       email: 'joao@test.com',
       whatsapp: '85997381011',
       address: {
@@ -40,5 +40,11 @@ describe('Register', () => {
     cy.contains('.delivery-method li', deliveryman.delivery_method).click()
 
     cy.get('input[accept^="image"]').attachFile(`/images/${deliveryman.cnh}`)
+
+    
+    cy.get('form button[type="submit"]').click()
+
+    const expectedMessage = 'Recebemos os seus dados. Fique de olho na sua caixa de email, pois e em breve retornamos o contato.'
+    cy.get('.swal2-container .swal2-html-container').should('have.text', expectedMessage)
   });
 });
