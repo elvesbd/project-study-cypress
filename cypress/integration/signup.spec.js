@@ -8,7 +8,7 @@ describe('Register', () => {
     })
   }) */
 
-  it('user be a delivery man', function()  {
+  it.skip('user be a delivery man', function()  {
     const deliveryman = signupFactory.deliver()
 
     signup.go()
@@ -19,7 +19,7 @@ describe('Register', () => {
     signup.modalContentShouldBe(expectedMessage)
   });
 
-  it('cpf entered invalid', function() {
+  it.skip('cpf entered invalid', function() {
     const deliveryman = signupFactory.deliver()
     deliveryman.cpf = 'aa833441300'
 
@@ -30,7 +30,7 @@ describe('Register', () => {
     signup.alertMessageShouldBe('Oops! CPF inválido')
   });
 
-  it('email entered invalid', function() {
+  it.skip('email entered invalid', function() {
     const deliveryman = signupFactory.deliver()
     deliveryman.email = 'elves.com.br'
 
@@ -39,5 +39,18 @@ describe('Register', () => {
     signup.submit()
 
     signup.alertMessageShouldBe('Oops! Email com formato inválido.')
+  });
+
+  it('required fields', function() {
+    signup.go()
+    signup.submit()
+
+    signup.alertMessageShouldBe('É necessário informar o nome')
+    signup.alertMessageShouldBe('É necessário informar o CPF')
+    signup.alertMessageShouldBe('É necessário informar o email')
+    signup.alertMessageShouldBe('É necessário informar o CEP')
+    signup.alertMessageShouldBe('É necessário informar o número do endereço')
+    signup.alertMessageShouldBe('Selecione o método de entrega')
+    signup.alertMessageShouldBe('Adicione uma foto da sua CNH')
   });
 });
