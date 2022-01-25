@@ -8,7 +8,7 @@ describe('Register', () => {
     })
   }) */
 
-  it.skip('user be a delivery man', function()  {
+  it('user be a delivery man', function()  {
     const deliveryman = signupFactory.deliver()
 
     signup.go()
@@ -19,7 +19,7 @@ describe('Register', () => {
     signup.modalContentShouldBe(expectedMessage)
   });
 
-  it.skip('cpf entered invalid', function() {
+  it('cpf entered invalid', function() {
     const deliveryman = signupFactory.deliver()
     deliveryman.cpf = 'aa833441300'
 
@@ -30,7 +30,7 @@ describe('Register', () => {
     signup.alertMessageShouldBe('Oops! CPF inválido')
   });
 
-  it.skip('email entered invalid', function() {
+  it('email entered invalid', function() {
     const deliveryman = signupFactory.deliver()
     deliveryman.email = 'elves.com.br'
 
@@ -41,7 +41,30 @@ describe('Register', () => {
     signup.alertMessageShouldBe('Oops! Email com formato inválido.')
   });
 
-  it('required fields', function() {
+  context('required fields', function() {
+    const messages = [
+      {field: 'name', output: 'É necessário informar o nome'},
+      {field: 'cpf', output: 'É necessário informar o CPF'},
+      {field: 'email', output: 'É necessário informar o email'},
+      {field: 'postalcode', output: 'É necessário informar o CEP'},
+      {field: 'number', output: 'É necessário informar o número do endereço'},
+      {field: 'delivery_method', output: 'Selecione o método de entrega'},
+      {field: 'cnh', output: 'Adicione uma foto da sua CNH'},
+    ]
+
+    before(() => {
+      signup.go()
+      signup.submit()
+    })
+
+    messages.forEach((msg) => {
+      it(`${msg.field} is required`, function() {
+        signup.alertMessageShouldBe(msg.output)
+      })
+    })
+  })
+
+  /* it('required fields', function() {
     signup.go()
     signup.submit()
 
@@ -52,5 +75,5 @@ describe('Register', () => {
     signup.alertMessageShouldBe('É necessário informar o número do endereço')
     signup.alertMessageShouldBe('Selecione o método de entrega')
     signup.alertMessageShouldBe('Adicione uma foto da sua CNH')
-  });
+  }); */
 });
