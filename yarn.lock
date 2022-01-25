@@ -520,6 +520,11 @@ fs.realpath@^1.0.0:
   resolved "https://registry.nlark.com/fs.realpath/download/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
 
+gerador-validador-cpf@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.npmmirror.com/gerador-validador-cpf/download/gerador-validador-cpf-5.0.2.tgz#281f630f274fc8453b6e23a5cb557675cf475ec7"
+  integrity sha1-KB9jDydPyEU7biOly1V2dc9HXsc=
+
 get-stream@^5.0.0, get-stream@^5.1.0:
   version "5.2.0"
   resolved "https://registry.npm.taobao.org/get-stream/download/get-stream-5.2.0.tgz#4966a1795ee5ace65e706c4b7beb71257d6e22d3"
