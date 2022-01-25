@@ -18,6 +18,7 @@
   "homepage": "https://github.com/elvesbd/project-study-cypress#readme",
   "devDependencies": {
     "cypress": "^9.3.1",
-    "cypress-file-upload": "^5.0.8"
+    "cypress-file-upload": "^5.0.8",
+    "faker": "5.5.3"
   }
 }

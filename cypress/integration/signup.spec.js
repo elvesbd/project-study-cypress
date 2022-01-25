@@ -1,15 +1,18 @@
 import signup from '../pages/SignupPage'
+import signupFactory from '../factories/SignupFactory';
 
 describe('Register', () => {
-  beforeEach(function() {
+  /* beforeEach(function() {
     cy.fixture('deliveryman').then((man) => {
       this.deliveryman = man
     })
-  })
+  }) */
 
   it('user be a delivery man', function()  {
+    const deliveryman = signupFactory.deliver()
+
     signup.go()
-    signup.fillForm(this.deliveryman.signup)
+    signup.fillForm(deliveryman)
     signup.submit()
     
     const expectedMessage = 'Recebemos os seus dados. Fique de olho na sua caixa de email, pois e em breve retornamos o contato.'
@@ -17,10 +20,24 @@ describe('Register', () => {
   });
 
   it('cpf entered invalid', function() {
+    const deliveryman = signupFactory.deliver()
+    deliveryman.cpf = 'aa833441300'
+
     signup.go()
-    signup.fillForm(this.deliveryman.cpf_invalid)
+    signup.fillForm(deliveryman)
     signup.submit()
 
     signup.alertMessageShouldBe('Oops! CPF inválido')
+  });
+
+  it('email entered invalid', function() {
+    const deliveryman = signupFactory.deliver()
+    deliveryman.email = 'elves.com.br'
+
+    signup.go()
+    signup.fillForm(deliveryman)
+    signup.submit()
+
+    signup.alertMessageShouldBe('Oops! Email com formato inválido.')
   });
 });

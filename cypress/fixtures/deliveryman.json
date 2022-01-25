@@ -30,5 +30,21 @@
     },
     "delivery_method": "Moto",
     "cnh": "cnh-digital.jpg"
+  },
+  "email_invalid": {
+    "name": "João Brito",
+    "cpf": "99833441300",
+    "email": "elves.com.br",
+    "whatsapp": "85997381011",
+    "address": {
+      "postalcode": "60831070",
+      "street": "Rua Miguel Guimarães",
+      "number": "50",
+      "details": "fundos",
+      "district": "Lagoa Redonda",
+      "city_uf": "Fortaleza/CE"
+    },
+    "delivery_method": "Moto",
+    "cnh": "cnh-digital.jpg"
   }
 }
