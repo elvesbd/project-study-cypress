@@ -6,9 +6,9 @@ class SignupPage {
   }
 
   fillForm(deliverMan) {
-    cy.get('input[type="text"][name="name"]').type(deliverMan.name)
+    cy.get('input[type="text"][name="fullName"]').type(deliverMan.name)
     cy.get('input[type="text"][name="cpf"]').type(deliverMan.cpf)
-    cy.get('input[type="email"][name="email"]').type(deliverMan.email)
+    cy.get('input[type="text"][name="email"]').type(deliverMan.email)
     cy.get('input[type="text"][name="whatsapp"]').type(deliverMan.whatsapp)
 
     cy.get('input[type="text"][name="postalcode"]').type(deliverMan.address.postalcode)
