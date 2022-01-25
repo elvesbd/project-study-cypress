@@ -1,6 +1,23 @@
-import SignupPage from '../pages/SignupPage'
+import signup from '../pages/SignupPage'
 
 describe('Register', () => {
+
+ /*  before(() => {
+    cy.log('Tudo aqui é executado uma única vez ANTES de TODOS os casos de testes')
+  })
+
+  beforeEach(() => {
+    cy.log('Tudo aqui é executado sempre ANTES de CADA caso de teste')
+  })
+
+  after(() => {
+    cy.log('Tudo aqui é executado uma única vez DEPOIS de TODOS os casos de testes')
+  })
+
+  afterEach(() => {
+    cy.log('Tudo aqui é executado sempre DEPOIS de CADA caso de teste')
+  }) */
+
   it('user be a delivery man', () => {
     const deliveryman = {
       name: 'João Brito',
@@ -18,8 +35,6 @@ describe('Register', () => {
       delivery_method: 'Moto',
       cnh: 'cnh-digital.jpg'
     }
-
-    const signup = new SignupPage()
     
     signup.go()
     signup.fillForm(deliveryman)
@@ -46,8 +61,6 @@ describe('Register', () => {
       delivery_method: 'Moto',
       cnh: 'cnh-digital.jpg'
     }
-
-    const signup = new SignupPage()
     
     signup.go()
     signup.fillForm(deliveryman)
